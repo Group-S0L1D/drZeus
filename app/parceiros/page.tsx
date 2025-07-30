@@ -95,7 +95,7 @@ ${formData.motivacao || "Não informado"}
             <div className="bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-green-500/20 rounded-2xl p-8 backdrop-blur-sm border border-gray-700 mb-8">
               <div className="flex items-center justify-center space-x-4 mb-4">
                 <span className="text-4xl">🔥</span>
-                <div className="text-left">
+                <div className="text-center">
                   <p className="text-2xl font-bold text-white">Você entra com sua vontade de crescer.</p>
                   <p className="text-xl text-blue-300">Nós entregamos toda a estrutura.</p>
                 </div>
