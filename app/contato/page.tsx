@@ -334,16 +334,7 @@ ${formData.mensagem}
                   resposta:
                     "O consórcio é ideal para quem quer comprar um imóvel sem juros, pagando parcelas fixas. O home equity é para quem já tem imóvel e quer crédito com taxas baixas.",
                 },
-                {
-                  pergunta: "Quanto tempo demora para aprovação?",
-                  resposta:
-                    "Para consórcio, a aprovação é imediata. Para home equity, o processo leva de 15 a 30 dias, incluindo avaliação do imóvel.",
-                },
-                {
-                  pergunta: "Posso usar FGTS no consórcio?",
-                  resposta:
-                    "Sim! Você pode usar o FGTS para dar lance, amortizar parcelas ou quitar o consórcio após a contemplação.",
-                },
+                
               ].map((faq, index) => (
                 <div key={index} className="gradient-border">
                   <div className="gradient-border-content p-6 rounded-xl">

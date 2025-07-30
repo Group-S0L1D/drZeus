@@ -182,22 +182,6 @@ export function Hero() {
                       Ver Simulação Completa
                     </Button>
                   </SimulationModal>
-
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-800">
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-blue-400">15 anos</div>
-                      <div className="text-xs text-gray-500">de mercado</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-green-400">R$ 2,5B</div>
-                      <div className="text-xs text-gray-500">transacionados</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-purple-400">50k+</div>
-                      <div className="text-xs text-gray-500">clientes</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
