@@ -54,7 +54,7 @@ export default function SimuladoresPage() {
   // Cálculo automático do Home Equity
   useEffect(() => {
     const maxCredito = homeEquityData.valorImovel * 0.6
-    const taxa = 0.0109
+    const taxa = 0.0115
     const parcela = homeEquityData.valorDesejado * taxa
 
     setHomeEquityResult({
@@ -487,7 +487,7 @@ export default function SimuladoresPage() {
                       {
                         caracteristica: "Taxa de Juros",
                         consorcio: "Sem juros",
-                        homeEquity: "A partir de 1,09% a.m.",
+                        homeEquity: "A partir de 1,15% a.m.",
                         consorcioIcon: CheckCircle,
                         homeEquityIcon: TrendingUp,
                       },

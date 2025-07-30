@@ -163,14 +163,14 @@ export function Hero() {
                     <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 backdrop-blur-sm relative overflow-hidden">
                       <div className="text-sm text-gray-400 mb-2">Parcela Estimada</div>
                       <div className="text-xl font-bold text-green-400 glow-text blur-sm">
-                        {formatCurrency(creditValue * 0.0109)}
+                        {formatCurrency(creditValue * 0.0115)}
                       </div>
                       <div className="text-xs text-gray-500">por mês</div>
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50"></div>
                     </div>
                     <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 backdrop-blur-sm">
                       <div className="text-sm text-gray-400 mb-2">Taxa Estimada</div>
-                      <div className="text-xl font-bold text-blue-400 glow-text">1,09%</div>
+                      <div className="text-xl font-bold text-blue-400 glow-text">1,15%</div>
                       <div className="text-xs text-gray-500">ao mês</div>
                     </div>
                   </div>

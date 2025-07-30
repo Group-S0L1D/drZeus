@@ -5,7 +5,7 @@ export function HomeEquitySection() {
     {
       icon: CreditCard,
       title: "Taxas Baixas",
-      description: "As melhores taxas do mercado a partir de 1,09% a.m.",
+      description: "As melhores taxas do mercado a partir de 1,15% a.m.",
       color: "text-green-400",
       bgColor: "bg-green-500/10",
       borderColor: "border-green-500/20",

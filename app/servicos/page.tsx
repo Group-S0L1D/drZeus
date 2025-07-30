@@ -126,7 +126,7 @@ Cliente interessado em conhecer mais sobre os serviços da Dr. Zeus Capital.
                     {
                       icon: CreditCard,
                       title: "Taxas Baixas",
-                      description: "As melhores taxas do mercado a partir de 1,09% a.m.",
+                      description: "As melhores taxas do mercado a partir de 1,15% a.m.",
                       color: "text-green-400",
                       bgColor: "bg-green-500/10",
                       borderColor: "border-green-500/20",
@@ -134,7 +134,7 @@ Cliente interessado em conhecer mais sobre os serviços da Dr. Zeus Capital.
                     {
                       icon: TrendingUp,
                       title: "Alto Valor",
-                      description: "Libere até 70% do valor do seu imóvel como crédito.",
+                      description: "Libere até 60% do valor do seu imóvel como crédito.",
                       color: "text-blue-400",
                       bgColor: "bg-blue-500/10",
                       borderColor: "border-blue-500/20",
@@ -456,7 +456,7 @@ Cliente interessado em conhecer mais sobre os serviços da Dr. Zeus Capital.
                 {
                   letter: "F",
                   title: "Taxas Preferenciais",
-                  subtitle: "A PARTIR DE 1,09% A.M. + IPCA",
+                  subtitle: "A PARTIR DE 1,15% A.M. + IPCA",
                   description:
                     "As melhores taxas do mercado, exclusivas para nossos clientes premium, com indexação transparente e justa.",
                   color: "purple",
@@ -600,7 +600,7 @@ Cliente interessado em solicitar proposta para Consultoria Patrimonial Premium.
                       </p>
                       <div className="space-y-3 mb-8">
                         {[
-                          "Taxas a partir de 1,09% a.m.",
+                          "Taxas a partir de 1,15% a.m.",
                           "Prazo de até 240 meses",
                           "Carência de até 6 meses",
                           "Aprovação em 48h",
