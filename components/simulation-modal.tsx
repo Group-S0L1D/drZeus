@@ -88,20 +88,17 @@ export function SimulationModal({ children }: SimulationModalProps) {
 
   const calculateResults = () => {
     const creditValue = parseFloat(formData.desiredCredit.replace(/[^\d,]/g, '').replace(',', '.')) || 0
-    const monthlyRate = 0.0109 // 1,09% ao mês
+    const propertyValue = parseFloat(formData.propertyValue.replace(/[^\d,]/g, '').replace(',', '.')) || 0
+    const monthlyRate = 0.0115 // 1,15% ao mês
     const termMonths = selectedTerm
     
     // Cálculo da parcela usando fórmula de financiamento
     const monthlyPayment = creditValue * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1)
     
-    const totalAmount = monthlyPayment * termMonths
-    const totalInterest = totalAmount - creditValue
-    
     return {
       monthlyPayment,
-      totalAmount,
-      totalInterest,
-      creditValue
+      creditValue,
+      propertyValue
     }
   }
 
@@ -164,10 +161,9 @@ export function SimulationModal({ children }: SimulationModalProps) {
 📊 *RESULTADO DA SIMULAÇÃO:*
 • Valor do Crédito: ${formatCurrencyResult(results.creditValue)}
 • Parcela Mensal: ${formatCurrencyResult(results.monthlyPayment)}
-• Total de Juros: ${formatCurrencyResult(results.totalInterest)}
-• Total a Pagar: ${formatCurrencyResult(results.totalAmount)}
+• Valor do Imóvel: ${formatCurrencyResult(results.propertyValue)}
 • Prazo: ${selectedTerm} meses (${termYears} anos)
-• Taxa: 1,09% ao mês
+• Taxa: 1,15% ao mês
 
 💬 *MENSAGEM:*
 ${formData.message || "Cliente interessado em simulação"}
@@ -385,7 +381,7 @@ ${formData.message || "Cliente interessado em simulação"}
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Sua Simulação Personalizada</h3>
               <p className="text-gray-300 text-sm">
-                Resultados baseados nos dados fornecidos com taxa de 1,09% ao mês
+                Resultados baseados nos dados fornecidos com taxa de 1,15% ao mês
               </p>
             </div>
 
@@ -419,7 +415,7 @@ ${formData.message || "Cliente interessado em simulação"}
             {(() => {
               const results = calculateResults()
               return (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card className="bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/30">
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-2">
@@ -447,29 +443,37 @@ ${formData.message || "Cliente interessado em simulação"}
                   <Card className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 border-purple-500/30">
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <Percent className="w-5 h-5 text-purple-400" />
-                        <span className="text-sm text-gray-300">Total de Juros</span>
+                        <Home className="w-5 h-5 text-purple-400" />
+                        <span className="text-sm text-gray-300">Valor do Imóvel</span>
                       </div>
                       <div className="text-xl font-bold text-purple-400">
-                        {formatCurrencyResult(results.totalInterest)}
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 border-orange-500/30">
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <TrendingUp className="w-5 h-5 text-orange-400" />
-                        <span className="text-sm text-gray-300">Total a Pagar</span>
-                      </div>
-                      <div className="text-xl font-bold text-orange-400">
-                        {formatCurrencyResult(results.totalAmount)}
+                        {formatCurrencyResult(results.propertyValue)}
                       </div>
                     </CardContent>
                   </Card>
                 </div>
               )
             })()}
+
+            {/* Escritas */}
+            <Card className="bg-gradient-to-br from-gray-800/50 to-gray-700/30 border-gray-600">
+              <CardContent className="p-6">
+                <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-400" />
+                  Informações Importantes
+                </h4>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm">Até 180 dias para começar a pagar</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm">Taxa base utilizada 1.15%</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Botões de Ação */}
             <div className="flex flex-col sm:flex-row gap-3">

@@ -439,11 +439,7 @@ ${formData.motivacao || "Não informado"}
                   </CardHeader>
                   <CardContent className="p-8 pt-0 relative z-10">
                     <div className="text-center mb-6">
-                      <div className="bg-gradient-to-r from-green-500/20 to-yellow-500/20 border border-green-500/30 rounded-2xl p-6">
-                        <Banknote className="w-12 h-12 text-green-400 mx-auto mb-3" />
-                        <p className="text-3xl font-bold text-green-300 mb-2">R$ 20.000+</p>
-                        <p className="text-gray-300">por operação sem dificuldades</p>
-                      </div>
+                      
                     </div>
                     <div className="space-y-4">
                       {[

@@ -10,15 +10,6 @@ export function Header() {
 
   return (
     <>
-      {/* Banner promocional */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 px-4 text-center text-sm">
-        <span className="mr-2">🏆</span>
-        Realize seu sonho da casa própria com nossos consórcios
-        <Link href="/simuladores" className="ml-2 underline hover:no-underline">
-          Simular agora →
-        </Link>
-      </div>
-
       <header className="bg-gray-900 text-white sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
@@ -38,9 +29,6 @@ export function Header() {
               <Link href="/parceiros" className="hover:text-blue-400 transition-colors">
                 Parceiros
               </Link>
-              <Link href="/quem-somos" className="hover:text-blue-400 transition-colors">
-                Quem Somos
-              </Link>
               <Link href="/contato" className="hover:text-blue-400 transition-colors">
                 Contato
               </Link>
@@ -49,7 +37,7 @@ export function Header() {
             {/* CTA Button */}
             <div className="hidden lg:flex items-center">
               <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                <Link href="/simuladores">Simular Agora</Link>
+                <Link href="/parceiros">Área do Parceiro</Link>
               </Button>
             </div>
 
@@ -72,15 +60,12 @@ export function Header() {
                 <Link href="/parceiros" className="block hover:text-blue-400">
                   Parceiros
                 </Link>
-                <Link href="/quem-somos" className="block hover:text-blue-400">
-                  Quem Somos
-                </Link>
                 <Link href="/contato" className="block hover:text-blue-400">
                   Contato
                 </Link>
                 <div className="pt-4">
                   <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-                    <Link href="/simuladores">Simular Agora</Link>
+                    <Link href="/parceiros">Área do Parceiro</Link>
                   </Button>
                 </div>
               </div>

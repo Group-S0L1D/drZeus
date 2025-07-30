@@ -18,6 +18,7 @@ import {
   HeadphonesIcon,
 } from "lucide-react"
 import Link from "next/link"
+import { BenefitsSection } from "@/components/benefits-section"
 
 export default function ServicosPage() {
   return (
@@ -83,104 +84,10 @@ Cliente interessado em conhecer mais sobre os serviços da Dr. Zeus Capital.
       </section>
 
       {/* Nossos Serviços - Overview */}
-      <section className="py-20 bg-black relative">
-        <div className="absolute inset-0 bg-pattern opacity-5"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                Nosso <span className="text-blue-400 glow-text">Serviço</span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Cada serviço é uma obra-prima de precisão financeira, desenvolvida para superar as expectativas mais
-                elevadas.
-              </p>
-            </div>
+      {/* TODO: Seção "Nosso Serviço" comentada temporariamente */}
 
-            <div className="flex justify-center">
-              <div className="w-full max-w-2xl">
-              {/* Home Equity */}
-              <div className="relative group">
-                <div className="absolute top-4 left-4 text-8xl font-bold text-green-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300">
-                    01
-                </div>
-                <div className="gradient-border group-hover:scale-105 transition-all duration-300">
-                  <Card className="gradient-border-content border-0 h-full relative z-10 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <CardHeader className="p-8 relative z-10">
-                      <div className="flex items-center space-x-4 mb-4">
-                        <div className="w-12 h-12 bg-green-500/20 border border-green-500/30 rounded-xl flex items-center justify-center glow-blue group-hover:scale-110 transition-transform duration-300">
-                          <CreditCard className="w-6 h-6 text-green-400" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-2xl text-white group-hover:text-green-300 transition-colors">
-                            Home Equity Premium
-                          </CardTitle>
-                          <CardDescription className="text-green-400 font-semibold text-sm uppercase tracking-wide">
-                            Crédito com Garantia Imobiliária
-                          </CardDescription>
-                        </div>
-                      </div>
-                      <p className="text-gray-300 text-lg leading-relaxed">
-                        Libere até 70% do valor do seu imóvel com as melhores condições do mercado. Processo 100%
-                        digital e aprovação em até 48h.
-                      </p>
-                    </CardHeader>
-                    <CardContent className="p-8 pt-0 relative z-10">
-                      <div className="space-y-4 mb-6">
-                        {[
-                            "Taxas a partir de 1,09% a.m.",
-                          "Prazo de até 240 meses",
-                          "Carência de até 6 meses",
-                          "Aprovação em 48h",
-                        ].map((item, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center space-x-3 group/item hover:translate-x-2 transition-transform duration-200"
-                          >
-                            <div className="w-2 h-2 bg-green-400 rounded-full group-hover/item:scale-150 transition-transform duration-200"></div>
-                            <span className="text-gray-300 group-hover/item:text-green-300 transition-colors">
-                              {item}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="border-t border-gray-700 pt-6">
-                        <div className="text-sm text-gray-400 mb-2">VALOR</div>
-                        <div className="text-2xl font-bold text-white mb-4 group-hover:text-green-300 transition-colors">
-                          A partir de R$ 100.000
-                        </div>
-                          <Button 
-                            className="w-full bg-green-600 hover:bg-green-700 glow-blue"
-                            onClick={() => {
-                              const message = encodeURIComponent(`🚀 *NOVA PROPOSTA - DR ZEUS CAPITAL*
-
-👤 *DADOS DO CLIENTE:*
-• Interesse: Home Equity Premium
-• Origem: Página de Serviços - Seção Principal
-• Valor: A partir de R$ 100.000
-
-💬 *MENSAGEM:*
-Cliente interessado em solicitar proposta para Home Equity Premium.
-
----
-*Proposta gerada automaticamente pelo site*`)
-                              const whatsappUrl = `https://wa.me/554197344909?text=${message}`
-                              window.open(whatsappUrl, '_blank')
-                            }}
-                          >
-                            Solicitar Proposta
-                          </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Principais Benefícios */}
+      <BenefitsSection />
 
       {/* Home Equity Premium */}
       <section id="home-equity-premium" className="py-20 bg-black relative">

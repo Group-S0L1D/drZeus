@@ -185,8 +185,8 @@ ${formData.mensagem}
                         </div>
                         <div>
                           <h3 className="text-xl font-semibold text-white">Horário de Funcionamento</h3>
-                          <p className="text-gray-300">Segunda a Sexta: 8h às 18h</p>
-                          <p className="text-gray-300">Sábado: 9h às 13h</p>
+                          <p className="text-gray-300">Segunda a Sexta: 8h às 20h</p>
+                          <p className="text-gray-300"></p>
                         </div>
                       </div>
                     </div>

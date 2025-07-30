@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -17,19 +17,17 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50"
+                href="https://www.instagram.com/dr.zeuscapital/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pink-400 transition-colors p-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/dr-zeus-capital/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50"
               >
                 <Linkedin className="w-5 h-5" />

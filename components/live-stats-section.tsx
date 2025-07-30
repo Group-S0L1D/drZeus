@@ -31,7 +31,7 @@ export function LiveStatsSection() {
   const dailyIncrease = getDailyValue()
 
   // Valor base que cresce com o valor quebrado por dia
-  const baseValue = 85000000 // R$ 85 milhões como base
+  const baseValue = 40000000 // R$ 40 milhões como base
 
   useEffect(() => {
     setIsVisible(true)
