@@ -35,14 +35,14 @@ export default function ParceirosPage() {
     experiencia: "",
     motivacao: "",
   })
-///////////////////////////////////////////////////////////////////
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = () => {
     const message = encodeURIComponent(`🚀 *NOVA CANDIDATURA - DR ZEUS CAPITAL*
-
+ 
 👤 *DADOS DO CANDIDATO:*
 • Nome: ${formData.nome}
 • E-mail: ${formData.email}
@@ -126,7 +126,7 @@ ${formData.motivacao || "Não informado"}
                 
                 {/* Caixa de Valor */}
                 <div className="bg-gray-900/50 border border-gray-700 rounded-2xl p-8 max-w-2xl mx-auto backdrop-blur-sm">
-                  <div className="flex items-center space-x-2 mb-4">
+                  <div className="flex items-center justify-center space-x-2 mb-4">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                     <span className="text-green-400 text-sm font-medium">VALOR ATUALIZADO EM TEMPO REAL</span>
                   </div>
@@ -135,10 +135,7 @@ ${formData.motivacao || "Não informado"}
                     R$ 455.000
                   </div>
                   
-                  <div className="flex items-center justify-center space-x-2 text-green-400">
-                    <TrendingUp className="w-5 h-5" />
-                    <span className="text-lg">R$ 40.050 liberados hoje</span>
-                  </div>
+                  
                 </div>
               </div>
             </div>

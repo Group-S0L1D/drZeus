@@ -10,7 +10,7 @@ import { SimulationModal } from "./simulation-modal"
 
 export function Hero() {
   const [creditValue, setCreditValue] = useState(250000)
-  const maxCredit = 1000000
+  const maxCredit = 10000000
   const minCredit = 50000
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {

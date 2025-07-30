@@ -26,14 +26,14 @@ export default function SimuladoresPage() {
 
   // Limites para os sliders
   const consorcioLimits = {
-    valor: { min: 100000, max: 2000000, step: 10000 },
+    valor: { min: 100000, max: 10000000, step: 10000 },
     prazo: { min: 120, max: 240, step: 12 },
     renda: { min: 2000, max: 50000, step: 500 },
   }
 
   const homeEquityLimits = {
-    valorImovel: { min: 200000, max: 5000000, step: 50000 },
-    valorDesejado: { min: 50000, max: 2000000, step: 10000 },
+    valorImovel: { min: 200000, max: 10000000, step: 50000 },
+    valorDesejado: { min: 50000, max: 10000000, step: 10000 },
     prazo: { min: 120, max: 360, step: 12 },
   }
 
@@ -476,7 +476,7 @@ export default function SimuladoresPage() {
                       },
                       {
                         caracteristica: "Valor Máximo",
-                        consorcio: "R$ 500.000",
+                        consorcio: "R$ 10.000.000",
                         homeEquity: "60% do imóvel",
                       },
                       {
