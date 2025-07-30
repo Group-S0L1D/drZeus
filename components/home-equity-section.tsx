@@ -13,7 +13,7 @@ export function HomeEquitySection() {
     {
       icon: TrendingUp,
       title: "Alto Valor",
-      description: "Libere até 70% do valor do seu imóvel como crédito.",
+      description: "Libere até 60% do valor do seu imóvel como crédito.",
       color: "text-blue-400",
       bgColor: "bg-blue-500/10",
       borderColor: "border-blue-500/20",
@@ -21,7 +21,7 @@ export function HomeEquitySection() {
     {
       icon: Zap,
       title: "Aprovação Rápida",
-      description: "Processo 100% digital com aprovação em até 48h.",
+      description: "Processo 100% digital, aprovação rapida, assinatura do contrato entre 4 a 10 dias",
       color: "text-purple-400",
       bgColor: "bg-purple-500/10",
       borderColor: "border-purple-500/20",

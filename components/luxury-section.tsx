@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function LuxurySection() {
   return (
@@ -28,19 +29,21 @@ export function LuxurySection() {
               {/* Descrição */}
               <div>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Há mais de duas décadas, oferecemos soluções financeiras exclusivas para empresários que buscam 
-                  excelência e resultados extraordinários.
+                O seu imóvel tem mais liquidez do que imagina, utilize ele como garantia e use o recurso como quiser
                 </p>
               </div>
 
               {/* CTA Button */}
               <div>
                 <Button 
+                  asChild
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-4 rounded-lg transition-all duration-300 glow-blue"
                 >
-                  Descobrir Soluções
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <Link href="/servicos">
+                    Descobrir Soluções
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
                 </Button>
               </div>
             </div>
