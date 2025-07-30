@@ -78,9 +78,7 @@ export function Footer() {
                   <MapPin className="w-4 h-4 text-blue-400" />
                 </div>
                 <span className="text-gray-400">
-                  Rua Visconde de Nácar, 1440
-                  <br />
-                  Curitiba - PR
+                  Rua Visconde de Nácar, 1440. 20° andar - Curitiba - PR
                 </span>
               </div>
             </div>
@@ -92,9 +90,14 @@ export function Footer() {
             <div className="space-y-4">
               {/* ReclameAQUI Badge */}
               <div className="flex flex-col items-start space-y-2">
-                <div className="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-2 rounded-lg font-bold text-sm">
+                <a
+                  href="https://www.reclameaqui.com.br/empresa/zeus-capital-ltda/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:from-green-500 hover:to-green-400 transition-all duration-300 cursor-pointer"
+                >
                   ReclameAQUI
-                </div>
+                </a>
                 <div className="text-center">
                   <div className="text-gray-400 text-xs">Avaliação 0-10</div>
                   <div className="text-white font-bold text-xl">10</div>

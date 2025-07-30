@@ -330,11 +330,20 @@ ${formData.mensagem}
                     "Nossa simulação é 100% gratuita e sem compromisso. Você preenche os dados, recebe o resultado na hora e nossa equipe entra em contato para esclarecer dúvidas.",
                 },
                 {
-                  pergunta: "Qual a diferença entre consórcio e home equity?",
+                  pergunta: "O que é analisado para que eu consiga crédito com garantia de imóvel?",
                   resposta:
-                    "O consórcio é ideal para quem quer comprar um imóvel sem juros, pagando parcelas fixas. O home equity é para quem já tem imóvel e quer crédito com taxas baixas.",
+                    "O principal é o imóvel, que será a base garantidora do crédito. Você pode estar com restrições no nome, mas ainda assim conseguirá o empréstimo se o imóvel estiver em condições para isso.",
                 },
-                
+                {
+                  pergunta: "Qual tipo de imóvel é aceito?",
+                  resposta:
+                    "Aceitamos apartamentos, casas, casas em condomínio, imóveis comerciais e terrenos em condomínio como garantia para o empréstimo.",
+                },
+                {
+                  pergunta: "Quais os benefícios do empréstimo com imóvel em garantia?",
+                  resposta:
+                    "O empréstimo com imóvel em garantia oferece vantagens como taxas de juros mais baixas e prazos de pagamento longos, de até 20 anos. Você pode obter valores elevados de crédito utilizando seu imóvel como garantia, sem necessidade de vendê-lo. O processo é totalmente digital, proporcionando conveniência e rapidez. É ideal para investir em negócios, realizar reformas ou quitar dívidas, com segurança e confiança.",
+                },
               ].map((faq, index) => (
                 <div key={index} className="gradient-border">
                   <div className="gradient-border-content p-6 rounded-xl">

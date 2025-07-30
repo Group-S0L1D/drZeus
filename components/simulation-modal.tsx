@@ -405,7 +405,6 @@ ${formData.message || "Cliente interessado em simulação"}
                   <span>1 ano</span>
                   <span>5 anos</span>
                   <span>10 anos</span>
-                  <span>15 anos</span>
                   <span>20 anos</span>
                 </div>
               </div>

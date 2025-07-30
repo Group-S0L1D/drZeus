@@ -12,7 +12,7 @@ export function WhyChooseUs() {
     {
       icon: Clock,
       title: "Aprovação Rápida",
-      description: "Processo 100% digital com aprovação em até 24 horas para sua comodidade.",
+      description: "Processo 100% digital com aprovação rápida.",
       color: "text-green-400",
       bgColor: "bg-green-500/10",
     },
@@ -39,7 +39,7 @@ export function WhyChooseUs() {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Por que escolher a Dr. Zeus Capital?</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Mais de 15 anos de experiência no mercado financeiro, oferecendo as melhores soluções para nossos clientes.
+            Oferecendo as melhores soluções financeiras para nossos clientes com excelência e transparência.
           </p>
         </div>
 
