@@ -30,14 +30,16 @@ export function LiveStatsSection() {
   const totalDays = 365
   const dailyIncrease = getDailyValue()
 
-  // Valor base que cresce com o valor quebrado por dia
+  // Valor base fixo em R$ 40 milhões
   const baseValue = 40000000 // R$ 40 milhões como base
+
+  // Valor total será sempre o base + o valor diário
+  const targetValue = baseValue + dailyIncrease
 
   useEffect(() => {
     setIsVisible(true)
 
     // Animar o valor total
-    const targetValue = baseValue + dailyIncrease * currentDay
     const duration = 2000 // 2 segundos
     const steps = 50
     const increment = targetValue / steps
@@ -54,7 +56,7 @@ export function LiveStatsSection() {
     }, duration / steps)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [targetValue])
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("pt-BR", {
