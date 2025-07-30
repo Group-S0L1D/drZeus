@@ -35,7 +35,7 @@ export default function ParceirosPage() {
     experiencia: "",
     motivacao: "",
   })
-
+///////////////////////////////////////////////////////////////////
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
