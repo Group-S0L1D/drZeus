@@ -116,7 +116,6 @@ export default function QuemSomosPage() {
                     "Democratizar o acesso a soluções financeiras inteligentes, oferecendo consórcios e home equity com transparência, agilidade e as melhores condições do mercado.",
                   color: "text-blue-400",
                   bgColor: "bg-blue-500/10",
-                  image: "/placeholder.svg?height=200&width=300",
                 },
                 {
                   icon: TrendingUp,
@@ -125,7 +124,6 @@ export default function QuemSomosPage() {
                     "Ser a principal referência em soluções financeiras no Brasil, reconhecida pela excelência no atendimento e pela capacidade de transformar sonhos em realidade.",
                   color: "text-green-400",
                   bgColor: "bg-green-500/10",
-                  image: "/placeholder.svg?height=200&width=300",
                 },
                 {
                   icon: Heart,
@@ -134,21 +132,10 @@ export default function QuemSomosPage() {
                     "Transparência, ética, inovação, compromisso com o cliente, excelência no atendimento e responsabilidade social em todas as nossas ações.",
                   color: "text-purple-400",
                   bgColor: "bg-purple-500/10",
-                  image: "/placeholder.svg?height=200&width=300",
                 },
               ].map((pilar, index) => (
                 <div key={index} className="gradient-border group hover:scale-105 transition-all duration-300">
-                  <Card className="gradient-border-content border-0 h-full overflow-hidden">
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={pilar.image || "/placeholder.svg"}
-                        alt={pilar.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${pilar.bgColor} opacity-80`}></div>
-                    </div>
-
+                  <Card className="gradient-border-content border-0 h-full">
                     <CardContent className="p-8 text-center space-y-6">
                       <div
                         className={`w-16 h-16 ${pilar.bgColor} border border-gray-700 rounded-xl flex items-center justify-center mx-auto glow-blue`}
