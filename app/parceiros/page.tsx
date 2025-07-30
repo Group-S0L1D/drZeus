@@ -111,6 +111,38 @@ ${formData.motivacao || "Não informado"}
         <div className="absolute inset-0 bg-pattern opacity-5"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
+            {/* Seção de Estatísticas em Tempo Real */}
+            <div className="mb-20">
+              <div className="text-center space-y-6">
+                <h2 className="text-4xl lg:text-5xl font-bold text-white">
+                  Enquanto você está <span className="text-blue-400 glow-text">aqui!</span>
+                </h2>
+                <p className="text-xl text-gray-300">
+                  Liberamos comissão para mais um consultor:
+                </p>
+                <p className="text-xl text-gray-300">
+                  Em <span className="text-blue-400 font-bold">211</span> / 365 dias liberamos
+                </p>
+                
+                {/* Caixa de Valor */}
+                <div className="bg-gray-900/50 border border-gray-700 rounded-2xl p-8 max-w-2xl mx-auto backdrop-blur-sm">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 text-sm font-medium">VALOR ATUALIZADO EM TEMPO REAL</span>
+                  </div>
+                  
+                  <div className="text-6xl lg:text-7xl font-bold text-white mb-4">
+                    R$ 455.000
+                  </div>
+                  
+                  <div className="flex items-center justify-center space-x-2 text-green-400">
+                    <TrendingUp className="w-5 h-5" />
+                    <span className="text-lg">R$ 40.050 liberados hoje</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* CRM Gratuito */}
             <div className="mb-20">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -129,7 +161,7 @@ ${formData.motivacao || "Não informado"}
 
                   <div className="space-y-6">
                     <p className="text-xl text-gray-300 leading-relaxed">
-                      Ferramenta profissional, com automações, simulações, propostas, gestão de clientes e pipelines já
+                      Ferramenta profissional, com envio de mensagens em massa, simulações, propostas, gestão de clientes e pipelines já
                       estruturados.
                     </p>
 
@@ -143,10 +175,10 @@ ${formData.motivacao || "Não informado"}
                     <div className="bg-gradient-to-r from-purple-500/20 to-violet-500/10 border border-purple-500/30 rounded-xl p-6">
                       <div className="flex items-center space-x-3 mb-3">
                         <Brain className="w-6 h-6 text-purple-400" />
-                        <p className="text-lg text-purple-300 font-semibold">IA Integrada</p>
+                        <p className="text-lg text-purple-300 font-semibold">Envio de mensagens em massa</p>
                       </div>
                       <p className="text-gray-300">
-                        Para prever comportamento de leads e melhorar sua taxa de fechamento.
+                        Sistema com envio de mensagens em massa gratuito para você atender o seu cliente da melhor forma.
                       </p>
                     </div>
                   </div>
@@ -269,7 +301,7 @@ ${formData.motivacao || "Não informado"}
                   <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-xl p-6">
                     <p className="text-lg text-green-300 font-semibold mb-2">🎯 Somos o ápice da prospecção moderna</p>
                     <p className="text-gray-300">
-                      Tudo integrado com seu CRM, permitindo campanhas inteligentes e personalizadas.
+                      O segredo da prospecção é saber o que o seu cliente faz antes mesmo de abordar.
                     </p>
                   </div>
                 </div>

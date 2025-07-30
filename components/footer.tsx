@@ -13,7 +13,7 @@ export function Footer() {
               <img src="/images/dr-zeus-logo-horizontal.png" alt="Dr. Zeus Capital" className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Soluções financeiras inteligentes para realizar seus sonhos através de consórcios e home equity.
+            Porque grandes decisões merecem inteligência estratégica.
             </p>
             <div className="flex space-x-4">
               <a
