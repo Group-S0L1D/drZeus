@@ -85,22 +85,26 @@ export function Footer() {
           </div>
 
           {/* Certificações e Selos */}
-          <div>
+          <div className="text-center">
             <h3 className="text-lg font-semibold mb-4 text-blue-400">Certificações</h3>
             <div className="space-y-4">
               {/* ReclameAQUI Badge */}
-              <div className="flex flex-col items-start space-y-2">
+              <div className="flex flex-col items-center space-y-2">
                 <a
                   href="https://www.reclameaqui.com.br/empresa/zeus-capital-ltda/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:from-green-500 hover:to-green-400 transition-all duration-300 cursor-pointer"
+                  className="transition-all duration-300 cursor-pointer hover:opacity-80"
                 >
-                  ReclameAQUI
+                  <img 
+                    src="/reclameAqui.png" 
+                    alt="ReclameAQUI" 
+                    className="h-18 w-auto border-2 border-green-500 rounded-lg"
+                  />
                 </a>
                 <div className="text-center">
-                  <div className="text-gray-400 text-xs">Avaliação 0-10</div>
-                  <div className="text-white font-bold text-xl">10</div>
+                  <div className="text-gray-400 text-xs text-center">Avaliação 0-10</div>
+                  <div className="text-white font-bold text-xl text-center">10</div>
                 </div>
               </div>
             </div>

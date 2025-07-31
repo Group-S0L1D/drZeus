@@ -12,9 +12,24 @@ import { User, Mail, Phone, Home, CreditCard, Calculator, Send, CheckCircle, Tre
 
 interface SimulationModalProps {
   children: React.ReactNode
+  consorcioData?: {
+    valor: number
+    prazo: number
+    percentualParcela: number
+    parcela: number
+    taxaAdmin: number
+  }
+  homeEquityData?: {
+    valorImovel: number
+    valorDesejado: number
+    prazo: number
+    parcela: number
+    taxa: number
+    aprovado: boolean
+  }
 }
 
-export function SimulationModal({ children }: SimulationModalProps) {
+export function SimulationModal({ children, consorcioData, homeEquityData }: SimulationModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -87,6 +102,31 @@ export function SimulationModal({ children }: SimulationModalProps) {
   }
 
   const calculateResults = () => {
+    // Se temos dados do consórcio, use-os
+    if (consorcioData) {
+      return {
+        monthlyPayment: consorcioData.parcela,
+        creditValue: consorcioData.valor,
+        propertyValue: consorcioData.valor,
+        percentualParcela: consorcioData.percentualParcela,
+        prazo: consorcioData.prazo,
+        taxaAdmin: consorcioData.taxaAdmin
+      }
+    }
+    
+    // Se temos dados do home equity, use-os
+    if (homeEquityData) {
+      return {
+        monthlyPayment: homeEquityData.parcela,
+        creditValue: homeEquityData.valorDesejado,
+        propertyValue: homeEquityData.valorImovel,
+        taxa: homeEquityData.taxa,
+        prazo: homeEquityData.prazo,
+        aprovado: homeEquityData.aprovado
+      }
+    }
+    
+    // Cálculo padrão (fallback)
     const creditValue = parseFloat(formData.desiredCredit.replace(/[^\d,]/g, '').replace(',', '.')) || 0
     const propertyValue = parseFloat(formData.propertyValue.replace(/[^\d,]/g, '').replace(',', '.')) || 0
     const monthlyRate = 0.0115 // 1,15% ao mês
@@ -419,7 +459,9 @@ ${formData.message || "Cliente interessado em simulação"}
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-2">
                         <DollarSign className="w-5 h-5 text-green-400" />
-                        <span className="text-sm text-gray-300">Valor do Crédito</span>
+                        <span className="text-sm text-gray-300">
+                          {consorcioData ? "Valor do Imóvel" : "Valor do Crédito"}
+                        </span>
                       </div>
                       <div className="text-xl font-bold text-green-400">
                         {formatCurrencyResult(results.creditValue)}
@@ -436,6 +478,11 @@ ${formData.message || "Cliente interessado em simulação"}
                       <div className="text-xl font-bold text-blue-400">
                         {formatCurrencyResult(results.monthlyPayment)}
                       </div>
+                      {consorcioData && results.percentualParcela && (
+                        <div className="text-xs text-blue-300 mt-1">
+                          {results.percentualParcela}% da parcela total
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
 
@@ -443,10 +490,12 @@ ${formData.message || "Cliente interessado em simulação"}
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-2">
                         <Home className="w-5 h-5 text-purple-400" />
-                        <span className="text-sm text-gray-300">Valor do Imóvel</span>
+                        <span className="text-sm text-gray-300">
+                          {consorcioData ? "Prazo" : "Valor do Imóvel"}
+                        </span>
                       </div>
                       <div className="text-xl font-bold text-purple-400">
-                        {formatCurrencyResult(results.propertyValue)}
+                        {consorcioData ? `${results.prazo} meses` : formatCurrencyResult(results.propertyValue)}
                       </div>
                     </CardContent>
                   </Card>
@@ -461,15 +510,34 @@ ${formData.message || "Cliente interessado em simulação"}
                   <CheckCircle className="w-5 h-5 text-blue-400" />
                   Informações Importantes
                 </h4>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm">Até 180 dias para começar a pagar</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm">Taxa base utilizada 1.15%</p>
-                  </div>
+                                 <div className="space-y-3">
+                   {consorcioData ? (
+                     <>
+                       <div className="flex items-start gap-3">
+                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                         <p className="text-gray-300 text-sm">Sem juros - apenas taxa administrativa</p>
+                       </div>
+                       <div className="flex items-start gap-3">
+                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                         <p className="text-gray-300 text-sm">Taxa administrativa: {consorcioData.taxaAdmin}%</p>
+                       </div>
+                       <div className="flex items-start gap-3">
+                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                         <p className="text-gray-300 text-sm">Parcela: {consorcioData.percentualParcela}% do valor total</p>
+                       </div>
+                     </>
+                   ) : (
+                    <>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300 text-sm">Até 180 dias para começar a pagar</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300 text-sm">Taxa base utilizada 1.15%</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </CardContent>
             </Card>

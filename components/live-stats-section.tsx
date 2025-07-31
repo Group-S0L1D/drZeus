@@ -72,7 +72,7 @@ export function LiveStatsSection() {
       <div className="absolute inset-0 bg-dots opacity-5"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center overflow-hidden">
           {/* Título Principal */}
           <div className="mb-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -92,7 +92,7 @@ export function LiveStatsSection() {
           {/* Valor Principal */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-green-500/10 to-blue-500/10 rounded-2xl blur-xl"></div>
-            <div className="relative bg-gray-900/50 border border-gray-700 rounded-2xl p-12 backdrop-blur-sm">
+            <div className="relative bg-gray-900/50 border border-gray-700 rounded-2xl p-6 sm:p-8 md:p-12 backdrop-blur-sm">
               <div className="flex items-center justify-center mb-6">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse mr-3"></div>
                 <span className="text-green-400 text-sm font-medium">VALOR ATUALIZADO EM TEMPO REAL</span>
@@ -101,7 +101,7 @@ export function LiveStatsSection() {
               <div
                 className={`transition-all duration-1000 ${isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-4"}`}
               >
-                <div className="text-6xl lg:text-7xl font-bold text-white mb-4 glow-text">
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 glow-text break-words">
                   {formatCurrency(currentValue)}
                 </div>
 

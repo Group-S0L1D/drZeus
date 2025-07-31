@@ -11,7 +11,7 @@ export default function SimuladoresPage() {
   const [consorcioData, setConsorcioData] = useState({
     valor: 300000,
     prazo: 180,
-    renda: 5000,
+    percentualParcela: 50, // 50% por padrão
   })
 
   // Estados para Home Equity
@@ -28,7 +28,7 @@ export default function SimuladoresPage() {
   const consorcioLimits = {
     valor: { min: 100000, max: 10000000, step: 10000 },
     prazo: { min: 120, max: 240, step: 12 },
-    renda: { min: 2000, max: 50000, step: 500 },
+    percentualParcela: { min: 25, max: 100, step: 25 },
   }
 
   const homeEquityLimits = {
@@ -40,14 +40,16 @@ export default function SimuladoresPage() {
   // Cálculo automático do Consórcio
   useEffect(() => {
     const taxa = 0.003
-    const parcela = (consorcioData.valor * (1 + taxa)) / consorcioData.prazo
+    const valorTotal = consorcioData.valor
+    const parcela = (valorTotal * (1 + taxa)) / consorcioData.prazo
+    const valorParcela = parcela * (consorcioData.percentualParcela / 100)
 
     setConsorcioResult({
-      valorTotal: consorcioData.valor,
-      parcela: parcela,
+      valorTotal: valorTotal,
+      parcela: valorParcela,
       prazo: consorcioData.prazo,
       taxaAdmin: taxa * 100,
-      rendaCompativel: parcela <= consorcioData.renda * 0.3,
+      percentualParcela: consorcioData.percentualParcela,
     })
   }, [consorcioData])
 
@@ -109,7 +111,7 @@ export default function SimuladoresPage() {
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-400">{label}</span>
           <span className="text-lg font-bold text-white">
-            {typeof value === "number" && value >= 1000 ? formatCurrency(value) : `${value} meses`}
+            {label === "Percentual da Parcela" ? `${value}%` : typeof value === "number" && value >= 1000 ? formatCurrency(value) : `${value} meses`}
           </span>
         </div>
         <div className="relative">
@@ -140,8 +142,8 @@ export default function SimuladoresPage() {
           />
         </div>
         <div className="flex justify-between text-xs text-gray-500">
-          <span>{typeof min === "number" && min >= 1000 ? formatCurrency(min) : `${min} meses`}</span>
-          <span>{typeof max === "number" && max >= 1000 ? formatCurrency(max) : `${max} meses`}</span>
+          <span>{label === "Percentual da Parcela" ? `${min}%` : typeof min === "number" && min >= 1000 ? formatCurrency(min) : `${min} meses`}</span>
+          <span>{label === "Percentual da Parcela" ? `${max}%` : typeof max === "number" && max >= 1000 ? formatCurrency(max) : `${max} meses`}</span>
         </div>
       </div>
     )
@@ -224,12 +226,12 @@ export default function SimuladoresPage() {
                     />
 
                     <SliderWithLightning
-                      value={consorcioData.renda}
-                      onChange={(value) => setConsorcioData({ ...consorcioData, renda: value })}
-                      min={consorcioLimits.renda.min}
-                      max={consorcioLimits.renda.max}
-                      step={consorcioLimits.renda.step}
-                      label="Sua Renda Mensal"
+                      value={consorcioData.percentualParcela}
+                      onChange={(value) => setConsorcioData({ ...consorcioData, percentualParcela: value })}
+                      min={consorcioLimits.percentualParcela.min}
+                      max={consorcioLimits.percentualParcela.max}
+                      step={consorcioLimits.percentualParcela.step}
+                      label="Percentual da Parcela"
                       color="green"
                     />
 
@@ -262,7 +264,7 @@ export default function SimuladoresPage() {
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-70"></div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-3 gap-4">
                           <div className="text-center p-4 bg-gray-900/30 rounded-lg border border-gray-800">
                             <div className="text-sm text-gray-400">Prazo</div>
                             <div className="text-xl font-semibold text-white">{consorcioResult.prazo} meses</div>
@@ -271,11 +273,15 @@ export default function SimuladoresPage() {
                             <div className="text-sm text-gray-400">Taxa Admin.</div>
                             <div className="text-xl font-semibold text-white">{consorcioResult.taxaAdmin}%</div>
                           </div>
+                          <div className="text-center p-4 bg-gray-900/30 rounded-lg border border-gray-800">
+                            <div className="text-sm text-gray-400">Parcela</div>
+                            <div className="text-xl font-semibold text-white">{consorcioResult.percentualParcela}%</div>
+                          </div>
                         </div>
 
 
 
-                        <SimulationModal>
+                        <SimulationModal consorcioData={consorcioResult}>
                           <Button className="w-full bg-green-600 hover:bg-green-700 text-lg py-4 glow-blue">
                             Ver Simulação Completa
                           </Button>
@@ -398,11 +404,11 @@ export default function SimuladoresPage() {
                               <div className="text-xl font-semibold text-white">{homeEquityResult.taxa}% ao mês</div>
                             </div>
 
-                            <SimulationModal>
-                              <Button className="w-full bg-green-600 hover:bg-green-700 text-lg py-4 glow-blue">
-                                Ver Simulação Completa
-                              </Button>
-                            </SimulationModal>
+                                                    <SimulationModal homeEquityData={homeEquityResult}>
+                          <Button className="w-full bg-green-600 hover:bg-green-700 text-lg py-4 glow-blue">
+                            Ver Simulação Completa
+                          </Button>
+                        </SimulationModal>
                           </>
                         ) : (
                           <div className="bg-red-500/10 border border-red-500/20 p-6 rounded-xl backdrop-blur-sm text-center">
@@ -471,7 +477,7 @@ export default function SimuladoresPage() {
                     {[
                       {
                         caracteristica: "Valor Mínimo",
-                        consorcio: "R$ 50.000",
+                        consorcio: "R$ 20.000",
                         homeEquity: "R$ 100.000",
                       },
                       {
@@ -481,7 +487,7 @@ export default function SimuladoresPage() {
                       },
                       {
                         caracteristica: "Prazo",
-                        consorcio: "60 a 180 meses",
+                        consorcio: "36 a 240 meses",
                         homeEquity: "36 a 240 meses",
                       },
                       {
@@ -493,9 +499,9 @@ export default function SimuladoresPage() {
                       },
                       {
                         caracteristica: "Garantia",
-                        consorcio: "Não necessária",
+                        consorcio: "Imóvel como garantia",
                         homeEquity: "Imóvel como garantia",
-                        consorcioIcon: CheckCircle,
+                        consorcioIcon: Home,
                         homeEquityIcon: Home,
                       },
                       {
